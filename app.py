@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
+import os
 
 app = Flask(__name__)
 
@@ -25,4 +26,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(port=int(os.environ.get("PORT", 3000)),host='0.0.0.0',debug=True)
